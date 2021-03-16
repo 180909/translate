@@ -2,7 +2,6 @@ package translate
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -27,7 +26,6 @@ func Translate(str string) string {
 	html := string(bytes)
 	var data Data
 	json.Unmarshal([]byte(html), &data)
-	fmt.Println(data.TranslateResult)
 	for _, o := range data.TranslateResult{
 		for _, o1 := range o{
 			return o1.Tgt
